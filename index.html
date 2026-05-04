@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Library System</title>
+    
+    <style>
+        /* (Kode CSS ini sama persis dengan sebelumnya, tidak ada yang diubah) */
+        body { 
+            font-family: 'Times New Roman', Times, serif; 
+            background-color: #800020; 
+            color: #0a0a0a; 
+            margin: 0; 
+            padding: 40px 20px; 
+        }
+
+        h1 { 
+            color: #ffffff; 
+            text-align: center; 
+            border-bottom: 3px solid #ffffff; 
+            padding-bottom: 15px; 
+            margin-bottom: 10px; 
+        }
+
+        .deskripsi-sistem { 
+            text-align: center; 
+            font-size: 17px; 
+            color: #ffffff; 
+            margin-bottom: 30px; 
+        }
+        
+        .wadah-pencarian { 
+            max-width: 1000px; 
+            margin: 0 auto 20px auto; 
+            display: flex; 
+            gap: 10px; 
+        }
+
+        .input-pencarian { 
+            flex-grow: 1; 
+            padding: 12px 15px; 
+            border: 1px solid #ffffff; 
+            border-radius: 6px; 
+            font-size: 16px; 
+            font-family: 'Times New Roman', Times, serif; 
+            transition: border-color 0.3s; 
+        }
+
+        .input-pencarian:focus { 
+            outline: none; 
+            border-color: #ffffff; 
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3); 
+        }
+
+        .tombol-cari { 
+            background-color: #rgba; 
+            color: #3a3845; 
+            border: none; 
+            padding: 12px 24px;
+            border-radius: 6px; 
+            font-size: 15px; 
+            font-weight: bolder; 
+            cursor: pointer; 
+            transition: background-color 0.4s; 
+        }
+        .tombol-cari:hover { 
+            background-color: #ff6b81; 
+        }
+
+        .wadah-tabel { 
+            width: 100%; 
+            max-width: 1000px; 
+            margin: 0 auto 30px auto; 
+            overflow-x: auto; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
+            border-radius: 8px; 
+        }
+
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            background-color: #ffffff; 
+        }
+
+        th { 
+            background-color: #ffffff; 
+            color: #3a3845; 
+            padding: 15px; 
+            text-align: left; 
+            white-space: nowrap; 
+        }
+        td { 
+            padding: 12px 15px; 
+            border-bottom: 1px solid #eaeaea; 
+        }
+
+        tr:hover { 
+            background-color: #ffffff; 
+        }
+
+        .wadah-tombol { 
+            text-align: center; 
+        }
+
+        .tombol-utama { 
+            display: inline-block; 
+            background-color: #e94560; 
+            color: #ffffff; 
+            padding: 12px 28px; 
+            text-decoration: none; 
+            border-radius: 6px; 
+            font-weight: bold; 
+            font-size: 16px; 
+            transition: all 0.3s ease; 
+            box-shadow: 0 2px 5px rgba(46, 204, 113, 0.4); 
+            box-sizing: border-box; 
+        }
+
+        .tombol-utama:hover { 
+            background-color: #6D2932; 
+            box-shadow: 0 4px 8px rgba(46, 204, 113, 0.6); 
+            transform: translateY(-2px); 
+        }
+
+        @media screen and (max-width: 600px) {
+            body { 
+                padding: 15px 10px; 
+            }
+            h1 { 
+                font-size: 23px; 
+            }
+            th, td { 
+                padding: 8px 10px; 
+                font-size: 17px; 
+            }
+            .wadah-pencarian { 
+                flex-direction: column; 
+            }
+            .tombol-cari { 
+                width: 100%; 
+            }
+            .tombol-utama { 
+                display: block; 
+                width: 100%; 
+                font-size: 18px; 
+                padding: 15px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Aether Library </h1>
+    <p class="deskripsi-sistem">Ruang Tanpa Batas Untuk Menjelajahi Dunia Literasi Dan Imajinasi.</p>
+
+    <div class="wadah-pencarian">
+        <input type="text" id="inputPencarian" class="input-pencarian" placeholder="Masukkan kata kunci (Judul, Penulis, atau Kategori)...">
+        <button class="tombol-cari">Cari</button>
+    </div>
+
+    <div class="wadah-tabel">
+        <table id="tabelKatalog">
+            <tr>
+                <th>No.</th>
+                <th>Cover</th>
+                <th>Judul Buku</th>
+                <th>Penulis</th>
+                <th>Tahun</th>
+                <th>Kategori</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>
+                    <a href="https://cdn.gramedia.com/uploads/items/9786020324784_Hujan-Cover-Baru-2018.jpg"
+                    target="_blank">
+                    <img src="https://cdn.gramedia.com/uploads/items/9786020324784_Hujan-Cover-Baru-2018.jpg"
+                    alt="Cover Buku" style="width: 100px; height: auto;"
+                </td>
+                <td>Hujan</td>
+                <td>Tere Liye</td>
+                <td>2016</td>
+                <td>Fantasi</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>
+                    <a href="https://cdn.gramedia.com/uploads/items/Home_Sweet_Loan_cov.jpg"
+                    target="_blank">
+                    <img src="https://cdn.gramedia.com/uploads/items/Home_Sweet_Loan_cov.jpg"
+                    alt="Cover Buku" style="width: 100px; height: auto;"
+                <td>
+                <td>Home Sweet Loan</td>
+                <td>Almira Bastari</td>
+                <td>2022</td>
+                <td>Fiksi</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>
+                    <a href="https://down-id.img.susercontent.com/file/id-11134201-81ztk-mf3g582fsufcf4"
+                    target="_blank">
+                    <img src="https://down-id.img.susercontent.com/file/id-11134201-81ztk-mf3g582fsufcf4"
+                    alt="Cover Buku" style="width: 100px; height: auto;"
+                <td>
+                <td>Senja Di Mata Bintang</td>
+                <td>Dhea Candra</td>
+                <td>2018</td>
+                <td>Fiksi</td> 
+            </tr>
+            <tr> 
+                <td>4</td>
+                <td>
+                    <a href="https://cdn.gramedia.com/uploads/items/CD-SDLA.jpg"
+                    target="_blank">
+                    <img src="https://cdn.gramedia.com/uploads/items/CD-SDLA.jpg"
+                    alt="Cover Buku" style="width: 100px; height: auto;"
+                <td>
+                <td>Sangkakala di Langit Andalusia</td>
+                <td>Hanum Salsabiela Rais</td>
+                <td>2022</td>
+                <td>Fiksi Sejarah</td> 
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>
+                    <a href="https://down-id.img.susercontent.com/file/f54c68cde16ed5572ff8cb52999db4d7"
+                    target="_blank">
+                    <img src="https://down-id.img.susercontent.com/file/f54c68cde16ed5572ff8cb52999db4d7"
+                    alt="Cover Buku" style="width: 100px; height: auto;"
+                <td>
+                <td>Romansa Di Bawah Langit</td>
+                <td>Ervina Dyah P </td>
+                <td>2020</td>
+                <td>Romansa</td> 
+        </table>
+    </div>
+
+    <div class="wadah-tombol">
+        <a href="#" class="tombol-utama">+ Tambah Koleksi Baru</a>
+    </div>
+
+    <script>
+        // 1. Ambil elemen input dan tabel berdasarkan ID yang kita buat tadi
+        const inputPencarian = document.getElementById("inputPencarian");
+        const tabel = document.getElementById("tabelKatalog");
+        // Ambil semua elemen baris (tr) yang ada di dalam tabel
+        const barisTabel = tabel.getElementsByTagName("tr");
+
+        // 2. Tambahkan "pendengar" (event listener) yang aktif setiap kali tombol keyboard dilepas (keyup)
+        inputPencarian.addEventListener("keyup", function() {
+            
+            // Ambil teks yang diketik pengguna, dan ubah menjadi huruf kecil (agar pencarian tidak sensitif huruf besar/kecil)
+            const kataKunci = inputPencarian.value.toLowerCase();
+
+            // 3. Lakukan perulangan (loop) untuk memeriksa setiap baris tabel.
+            // Kita mulai dari i = 1 (bukan 0) untuk melewati baris pertama yang berisi Judul Kolom (Header)
+            for (let i = 1; i < barisTabel.length; i++) {
+                
+                // Ambil semua sel data (td) di dalam baris yang sedang diperiksa
+                const selData = barisTabel[i].getElementsByTagName("td");
+                let adaKecocokan = false;
+
+                // Periksa setiap sel dalam baris tersebut (Judul, Penulis, Tahun, dll)
+                for (let j = 0; j < selData.length; j++) {
+                    if (selData[j]) {
+                        // Jika teks di dalam sel tersebut mengandung kata kunci yang diketik
+                        if (selData[j].innerText.toLowerCase().indexOf(kataKunci) > -1) {
+                            adaKecocokan = true;
+                            break; // Berhenti memeriksa sel lain di baris ini jika sudah ketemu kecocokan
+                        }
+                    }
+                }
+
+                // 4. Jika ada sel yang cocok, tampilkan barisnya. Jika tidak, sembunyikan barisnya.
+                if (adaKecocokan) {
+                    barisTabel[i].style.display = ""; // Mengembalikan ke tampilan semula
+                } else {
+                    barisTabel[i].style.display = "none"; // Menyembunyikan baris
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
